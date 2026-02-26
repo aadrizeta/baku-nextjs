@@ -2,12 +2,52 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  /* paddings responsivos */
+  --padding-mobile: 1rem;
+  --padding-tablet:1.5rem;
+  --padding-desktop: 3rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-sans: var(--nf-sans);
+}
+@layer components{
+
+  .col-center{
+    @apply flex flex-col justify-center items-center;
+  }
+  .padding-responsive{
+    padding-inline: var(--padding-mobile);
+  }
+  @media (min-width: 768px) {
+    .padding-responsive{
+      padding-inline: var(--padding-tablet);
+    }
+  }
+  @media (min-width: 1024px) {
+    .padding-responsive{
+      --max-width: 337.5px;
+      @apply mx-auto;
+      max-width: var(--max-width);
+      padding-inline: calc(
+        max(0px, (100vw - var(--max-width)) / 2 - var(--padding-desktop))
+      );
+    }
+    .padding-responsive-wide{
+      --max-width: 450px;
+      @apply mx-auto;
+      max-width: var(--max-width);
+      padding-inline: calc(
+        max(0px, (100vw - var(--max-width)) / 2 - var(--padding-desktop))
+      );
+    }
+    /* .padding-responsive-wide{
+      @apply mx-auto max-w-450;
+    } */
+  }
 }
 
 body {
