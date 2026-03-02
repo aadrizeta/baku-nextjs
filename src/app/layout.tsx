@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "../components/layout/header/header";
 
 const inter = Inter({
   variable: "--nf-sans",
@@ -23,7 +24,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`scroll-smooth ${inter.variable}`}>
       <head />
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
