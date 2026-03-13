@@ -22,9 +22,15 @@
   .padding-responsive {
     padding-inline: var(--padding-mobile);
   }
+  .padding-responsive-wide {
+    padding-inline: var(--padding-mobile);
+  }
 
   @media (min-width: 768px) {
     .padding-responsive {
+      padding-inline: var(--padding-tablet);
+    }
+    .padding-responsive-wide {
       padding-inline: var(--padding-tablet);
     }
   }
@@ -43,37 +49,27 @@
       padding-inline: var(--padding-desktop);
     }
   }
-  /* .padding-responsive{
-    padding-inline: var(--padding-mobile);
-  }
-  @media (min-width: 768px) {
-    .padding-responsive{
-      padding-inline: var(--padding-tablet);
-    }
-  }
-  @media (min-width: 1024px) {
-    .padding-responsive{
-      --max-width: 337.5px;
-      @apply mx-auto;
-      max-width: var(--max-width);
-      padding-inline: calc(
-        max(0px, (100vw - var(--max-width)) / 2 - var(--padding-desktop))
-      );
-    }
-    .padding-responsive-wide{
-      --max-width: 450px;
-      @apply mx-auto;
-      max-width: var(--max-width);
-      padding-inline: calc(
-        max(0px, (100vw - var(--max-width)) / 2 - var(--padding-desktop))
-      );
-    }
-  } */
   .header{
-    @apply z-60 fixed top-0 left-0 right-0 bg-background shadow-md w-full transition-transform duration-300 ease-in-out;
+    @apply z-60 fixed top-0 left-0 right-0 bg-background shadow-md w-full transition-transform duration-300 ease-in-out py-2;
   }
   .main-header{
-    @apply z-70 py-10 flex justify-between items-center h-15;
+    @apply z-70 flex justify-between items-center h-15;
+  }
+  .navlink{
+    @apply text-sm text-gray-600 tracking-wider uppercase transition-all duration-300 ease-out hover:scale-110 hover:text-foreground hover:font-semibold relative inline-block;
+    @apply after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-foreground after:transition-all after:duration-300 after:ease-out hover:after:w-full;;
+  }
+  .navlink-active{
+    @apply text-foreground font-bold text-base;
+  }
+  .mobile-menu {
+    @apply flex fixed flex-col top-0 left-0 w-full h-full bg-gray-400 z-50 transform transition-transform duration-300 ease-in-out;
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu {
+      display: none;
+    }
   }
 }
 
