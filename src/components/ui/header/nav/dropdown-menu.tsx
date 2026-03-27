@@ -31,7 +31,7 @@ function DropdownMenu({ isOpen, onClose }: DropdownMenuProps) {
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
-              <li key={link.name}>
+              <li key={link.name} className={`uppercase border-b border-gray-200 py-2 px-2 ${isActive ? 'text-foreground font-bold text-base' : 'text-gray-600'}`}>
                 <Link
                   href={link.href}
                   onClick={onClose}
@@ -42,7 +42,9 @@ function DropdownMenu({ isOpen, onClose }: DropdownMenuProps) {
             )
           })}
         </ul>
-        <div className='flex-1' onClick={onClose} />
+        <div className='flex-1 flex items-end' onClick={onClose}>
+          <span className='text-gray-400 text-xl font-light p-8'>BAKU DESSERTS STUDIO</span>
+        </div>
       </nav>
     </>
   )
